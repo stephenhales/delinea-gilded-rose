@@ -5,12 +5,10 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 public class TexttestFixture {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         File file = new File("target/test-output/TexttestFixture.received.txt");
-        if (!file.getParentFile().mkdirs()) {
-            throw new IOException("Couldn't create the output file");
-        }
+        file.getParentFile().mkdirs();
 
         try (PrintStream out = new PrintStream(file)) {
             out.println("OMGHAI!");
@@ -29,7 +27,7 @@ public class TexttestFixture {
 
             GildedRose app = new GildedRose(items);
 
-            int days = 2;
+            int days = 10;
             if (args.length > 0) {
                 days = Integer.parseInt(args[0]) + 1;
             }
@@ -40,7 +38,9 @@ public class TexttestFixture {
                 for (Item item : items) {
                     out.println(item);
                 }
-                out.println();
+                if (i < days - 1) {
+                    out.println();
+                }
                 app.updateQuality();
             }
         } catch (final IOException e) {

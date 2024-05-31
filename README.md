@@ -19,7 +19,7 @@ Pretty simple, right? Well this is where it gets interesting:
 - __"Aged Brie"__ actually increases in `Quality` the older it gets
 - The `Quality` of an item is never more than `50`
 - __"Sulfuras"__, being a legendary item, never has to be sold or decreases in `Quality`
-- __"Backstage passes"__, like aged brie, increases in `Quality` as its `SellIn` value approaches;
+- __"Backstage passes"__ increase in `Quality` as their `SellIn` value approaches;
     - `Quality` increases by `2` when there are `10` days or less and by `3` when there are `5` days or less but
     - `Quality` drops to `0` after the concert
 
