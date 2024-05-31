@@ -5,9 +5,14 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 public class TexttestFixture {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        try (PrintStream out = new PrintStream("src/test/TexttestFixture.received.txt")) {
+        File file = new File("target/test-output/TexttestFixture.received.txt");
+        if (!file.getParentFile().mkdirs()) {
+            throw new IOException("Couldn't create the output file");
+        }
+
+        try (PrintStream out = new PrintStream(file)) {
             out.println("OMGHAI!");
 
             Item[] items = new Item[] {
