@@ -43,6 +43,8 @@ public class TexttestFixture {
                 }
                 app.updateQuality();
             }
+
+
         } catch (final IOException e) {
             System.err.println("Problem! " + e.getMessage());
         }
