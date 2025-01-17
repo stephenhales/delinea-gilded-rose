@@ -16,6 +16,14 @@ class GildedRose {
                 continue;
             }
 
+            if (items[i].name.equals("Aged Brie")){
+                if (items[i].quality < 50) {
+                    items[i].quality = items[i].quality + 1;
+                }
+                items[i].sellIn = items[i].sellIn - 1;
+                continue;
+            }
+
             //Quality logic
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
