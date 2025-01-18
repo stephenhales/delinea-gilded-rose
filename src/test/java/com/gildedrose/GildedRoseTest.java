@@ -16,11 +16,11 @@ class GildedRoseTest {
 
     @Test
     void sulfurasNotUpdated() {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 5, 6) };
+        Item[] items = new Item[] { new Item("Sulfuras", 5, 6) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item actual = app.items[0];
-        assertEquals("Sulfuras, Hand of Ragnaros", actual.name);
+        assertEquals("Sulfuras", actual.name);
         assertEquals(5, actual.sellIn);
         assertEquals(6, actual.quality);
     }

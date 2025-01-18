@@ -13,7 +13,7 @@ class GildedRose {
 
         for (int i = 0; i < items.length; i++) {
             // Sulfuras (Not hand of Ragnaros)
-            if (items[i].name.equals("Sulfuras, Hand of Ragnaros")){ //TODO rename this, this is not the name
+            if (items[i].name.equals("Sulfuras")){
                 continue;
             }
 
