@@ -26,14 +26,9 @@ class GildedRose {
                 continue;
             }
 
-            // Quality logic
-            if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (items[i].quality > 0) {
-                    items[i].quality = items[i].quality - 1;
-                }
-            }
-
+            //Backstage Passes
             if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")){
+                //Quality logic
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
 
@@ -51,26 +46,29 @@ class GildedRose {
                         }
                     }
                 }
-            }
 
-            //SellIn logic
-            items[i].sellIn = items[i].sellIn - 1;
-
-            if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                //SellIn logic
+                items[i].sellIn = items[i].sellIn - 1;
                 if (items[i].sellIn < 0) {
                     items[i].quality = 0;
                 }
+
+                continue;
             }
 
-            if (items[i].sellIn < 0) {
-                if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (items[i].quality > 0) {
-                        if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                            items[i].quality = items[i].quality - 1;
-                        }
-                    }
-                }
+            // Quality logic GENERIC
+            if (items[i].quality > 0) {
+                items[i].quality = items[i].quality - 1;
+            }
 
+
+            //SellIn logic GENERIC
+            items[i].sellIn = items[i].sellIn - 1;
+
+            if (items[i].sellIn < 0) {
+                if (items[i].quality > 0) {
+                    items[i].quality = items[i].quality - 1;
+                }
             }
         }
     }
