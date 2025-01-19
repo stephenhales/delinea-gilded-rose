@@ -11,28 +11,22 @@ class GildedRose {
 
     public void updateQuality() {
 
-        for (int i = 0; i < items.length; i++) {
-            ItemServiceInterface service = new DefaultItemService();
+        for (Item item : items) {
+            ItemServiceInterface service = getItemService(item.name);
 
-            // Sulfuras (Not hand of Ragnaros)
-            if (items[i].name.equals("Sulfuras")){
-                service = new SulfurasService();
+            if (service.shouldUpdateItem(item)) {
+                service.updateQuality(item);
             }
 
-            // Aged Brie
-            if (items[i].name.equals("Aged Brie")){
-                service = new AgedBrieService();
-            }
+        }
+    }
 
-            //Backstage Passes
-            if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")){
-                service = new ConcertService();
-            }
-
-            if(service.shouldUpdateItem(items[i])){
-                service.updateQuality(items[i]);
-            }
-
+    private ItemServiceInterface getItemService(String name){
+        switch (name){
+            case "Sulfuras": return new SulfurasService();
+            case "Aged Brie": return new AgedBrieService();
+            case "Backstage passes to a TAFKAL80ETC concert": return new ConcertService();
+            default: return new DefaultItemService();
         }
     }
 }
