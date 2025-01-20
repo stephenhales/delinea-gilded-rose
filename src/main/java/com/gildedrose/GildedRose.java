@@ -15,9 +15,8 @@ class GildedRose {
             ItemServiceInterface service = getItemService(item.name);
 
             if (service.shouldUpdateItem(item)) {
-                service.updateQuality(item);
+                service.updateQuality(item);  // mutates the item.
             }
-
         }
     }
 

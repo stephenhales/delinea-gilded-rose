@@ -11,20 +11,16 @@ public class ConcertService implements ItemServiceInterface {
     public Item updateQuality(Item item) {
 
         //Quality logic
-        if (item.quality < 50) {
+        item.quality = item.quality + 1;
+
+        if (item.sellIn < 11) {
             item.quality = item.quality + 1;
-
-            if (item.sellIn < 11) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
-
-            if (item.sellIn < 6) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
-            }
+        }
+        if (item.sellIn < 6) {
+            item.quality = item.quality + 1;
+        }
+        if (item.quality > 50) {
+            item.quality = 50;
         }
 
         //SellIn logic
